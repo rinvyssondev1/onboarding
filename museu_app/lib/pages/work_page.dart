@@ -47,55 +47,72 @@ class _WorkPageState extends State<WorkPage> {
 Widget build(BuildContext context) {
   return Scaffold(
     backgroundColor: Colors.lightBlue[50],
-    body: isLoading
-        ? const LoadingWidget()
-        : Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 60, 16, 16),
-                child: Text(
-                  'Obras ${widget.attraction.name}',
-                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 61, 2, 199)),
-                  
+    // ...existing code...
+body: isLoading
+    ? const LoadingWidget()
+    : Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 48, 8, 0),
+            child: Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back, color: Color.fromARGB(255, 61, 2, 199)),
+                  onPressed: () => Navigator.of(context).pop(),
                 ),
-              ),
-              Expanded(
-                child: works.isEmpty
-                    ? const Center(child: Text('Não existe obras cadastradas.'))
-                    : ListView.builder(
-                        itemCount: works.length,
-                        itemBuilder: (context, index) {
-                          final work = works[index];
-                          return Card(
-                            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                            child: ListTile(
-                              title: Text(
-                                work.title,
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    'Obras ${widget.attraction.name}',
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 61, 2, 199),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: works.isEmpty
+                ? const Center(child: Text('Não existe obras cadastradas.'))
+                : ListView.builder(
+                    itemCount: works.length,
+                    itemBuilder: (context, index) {
+                      final work = works[index];
+                      return Card(
+                        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        child: ListTile(
+                          title: Text(
+                            work.title,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Color.fromARGB(255, 13, 10, 206),
+                            ),
+                          ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Autor: ${work.author}',
                                 style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: Color.fromARGB(255, 13, 10, 206)
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black87,
                                 ),
                               ),
-                              subtitle:Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Autor: ${work.author}', // Nome do autor
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.black87,
-                                      )),
-                                  const SizedBox(height: 4),
-                                  Text(work.description),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                ),
-            ],
+                              const SizedBox(height: 4),
+                              Text(work.description),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
           ),
+        ]
+      ),
   );
 }
 }
