@@ -38,14 +38,14 @@ export default function NovaAtracaoPage() {
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
-            className="border-2 border-indigo-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 rounded-lg p-3 text-lg"
+            className="border-2 border-indigo-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 rounded-lg p-3 text-lg text-black"
             placeholder="Nome da atração"
             value={form.name}
             onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
             required
           />
           <textarea
-            className="border-2 border-indigo-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 rounded-lg p-3 text-base"
+            className="border-2 border-indigo-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 rounded-lg p-3 text-base text-black"
             placeholder="Descrição"
             value={form.description}
             onChange={e => setForm(f => ({ ...f, description: e.target.value }))}

@@ -115,7 +115,7 @@ export default function Home() {
               {attractions.map((a) => (
                 <div
                   key={a.id}
-                  className={`relative rounded-2xl shadow-lg bg-white transition-all duration-200 border-2 ${selectedAttraction?.id === a.id ? 'border-indigo-500 ring-2 ring-indigo-200' : 'border-transparent hover:border-indigo-300'} group`}
+                  className={`relative rounded-2xl shadow-lg bg-white text-black transition-all duration-200 border-2 ${selectedAttraction?.id === a.id ? 'border-indigo-500 ring-2 ring-indigo-200' : 'border-transparent hover:border-indigo-300'} group`}
                   style={{ minHeight: 120 }}
                 >
                   <button
@@ -203,20 +203,20 @@ export default function Home() {
                     <input
                       type="text"
                       placeholder="Título"
-                      className="border-2 border-indigo-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 rounded-lg p-2 text-base"
+                      className="border-2 border-indigo-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 rounded-lg p-2 text-black"
                       value={form.title}
                       onChange={(e) => setForm({ ...form, title: e.target.value })}
                     />
                     <input
                       type="text"
                       placeholder="Autor"
-                      className="border-2 border-indigo-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 rounded-lg p-2 text-base"
+                      className="border-2 border-indigo-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 rounded-lg p-2 text-black"
                       value={form.author}
                       onChange={(e) => setForm({ ...form, author: e.target.value })}
                     />
                     <textarea
                       placeholder="Descrição"
-                      className="border-2 border-indigo-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 rounded-lg p-2 text-base"
+                      className="border-2 border-indigo-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 rounded-lg p-2 text-black"
                       value={form.description}
                       onChange={(e) => setForm({ ...form, description: e.target.value })}
                       rows={3}
